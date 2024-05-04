@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {margin: 0; padding: 0;}
+        a {text-decoration: none; color: white;}
+        ul{list-style-type: none;}
+        body {
+            background-color: #141414;
+            color: rgb(177, 177, 177);
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        header{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100vw;
+            height: 10vh;
+            background-color: #272727;
+            border: 0.1vh solid #353535;
+            display: flex;
+            align-items: center;
+        }
+        #logo_box{
+            display: flex;
+            align-items: center;
+            height: 70%;
+            opacity: 90%;
+        }
+        #logo {
+            margin: auto auto;
+            margin-left: 5vw;
+            cursor: pointer;
+        }
+
+        #page {
+            width: 100vw; height: max-content;
+            display: flex;
+            justify-content: center;
+            padding-top: 3vh;
+        }
+        #feed {
+            width: 40vw;
+            margin: 0 1.5vw;
+        }
+        #uploadForm {
+            display: flex;
+            min-height: 30vh;
+            flex-direction: column;
+            background-color: #272727;
+            border-radius: 3vh;
+        }
+
+        #inputText, #forbidden-labels {
+            height: 5%; width: 80%;
+            background-color: rgb(48, 48, 48);
+            color: rgb(61, 61, 61);
+            border: 0.1vh solid #353535;
+            border-radius: 1vh;
+            padding: 1% 2%;
+            margin: 1% auto 1% auto;
+            transition: 150ms;
+        }
+        #inputText:focus, #forbidden-labels:focus {
+            background-color: transparent;
+            border-color: #6200ea;
+            box-shadow: 0 0 10px rgba(98, 0, 234, 0.5);
+            outline: none;
+            color: rgb(192, 192, 192);
+            line-height: 1.5;
+        }
+        #page_menu {
+            display: flex;
+            flex-direction: column;
+            width: 7vw; height: max-content;
+        }
+        #page_menu li {
+            width: 100%;
+            font-size: smaller;
+            padding: 5% 5%;
+            margin-top: 2%;
+            cursor: pointer;
+            transition: 150ms;
+            border-bottom: 0.1vh solid #353535;
+            border-radius: 0;
+        }
+        #page_menu li:hover {
+            background-color: #1d1d1d;
+            border-radius: 1vh;
+        }
+
+        #publish, #submit-btn {
+            align-self: center;
+            background-color: #6200ea;
+            color: rgb(203, 203, 203);
+            text-transform: uppercase;
+            font-weight: 550;
+            border: none;
+            border-radius: 3vh;
+            margin-top: auto;
+            margin-bottom: 4%;
+            padding: 1.5% 7%;
+            cursor: pointer;
+            transition: 120ms;
+        }
+        #publish:hover, #submit-btn:hover{
+            box-shadow: 0 0 20px rgba(98, 0, 234, 0.5);
+        }
+        #submit-btn-2:hover{
+            box-shadow: 0 0 20px rgba(172, 0, 0, 0.295);
+        }
+        #publish:active, #submit-btn:active, #submit-btn-2:active{
+            color: rgb(140, 140, 140);
+        }
+        #submit-btn-2{
+            align-self: center;
+            background-color: #b70808;
+            color: rgb(203, 203, 203);
+            text-transform: uppercase;
+            font-size: x-small;
+            font-weight: 800;
+            border: none;
+            border-radius: 3vh;
+            padding: 1% 2%;
+            cursor: pointer;
+            transition: 120ms;
+        }
+        .icons{
+            width: 80%;
+            display: flex;
+            flex-direction: row;
+            margin: 3% auto 0 auto;
+        }
+        .fa {
+
+            cursor: pointer;
+            transition: 50ms;
+        }
+        #icon:hover{
+            opacity: 30%;
+        }
+        #inputPhoto, #inputVideo{
+            display: none;
+            height: 0;
+        }
+        #uploaded-image {
+            margin: 2% auto;
+            max-width: 80%;
+        }
+        #uploaded-video{
+            margin: 2% auto;
+            max-width: 80%;
+        }
+        #result {
+            text-align: center;
+            font-size: small;
+            color: red;
+        }
+        .new_post{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            max-width: 35vw;
+            background-color: #272727;
+            border-radius: 3vh;
+            padding: 0.5% 2%;
+            margin: 3% auto 3% auto;
+        }
+        .post_img, .post_video {
+            margin: 1% auto;
+            max-width: 99%;
+        }
+        .post_text{
+            text-align: start;
+            max-width: 90%;
+            margin: 1% 0;
+        }
+        #oper_block{
+            display: none;
+            flex-direction: column;
+            text-align: center;
+            margin: 5% 0;
+        }
+        #oper_input{
+            width: 80%;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin: 2% auto;
+        }
+        #submit-btn{
+            margin: 0 5%;
+            padding: 1% 5%;
+        }
+        #hide_oper{
+            width: 5vh; height: 5vh;
+            margin-right: 3vw;
+            border: none;
+            border-radius: 100px;
+            background-color: #272727;
+            cursor: pointer;
+        }
+        #hide_oper:hover{
+            background-color: grey;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div id="logo_box">
+            <a href="#" id="logo">AnoGram</a>
+        </div>
+        <div>
+            <button id="hide_oper"></button>
+        </div>
+    </header>
+
+    <section id="page">
+        <ul id="page_menu">
+            <li>Chats</li>
+            <li>Groups</li>
+            <li>Friends</li>
+            <li>Games</li>
+            <li>Settings</li>
+        </ul>
+
+        <div id="feed">
+            <form id="uploadForm">
+                <div class="icons">
+                    <label for="inputPhoto">
+                        <i class="fa fa-camera"></i>
+                    </label>
+                    <p>   </p>
+                    <label for="inputVideo">
+                        <i class="fa fa-video"></i>
+                    </label>
+                    
+                    <input type="file" id="inputPhoto" accept="image/*"><br>
+                    <input type="file" id="inputVideo" name="video" accept="video/*"><br>
+                </div>
+
+                <input type="text" id="inputText" placeholder="Type something">
+                <div id="result"></div>
+                <div id="oper_block">
+                    <label for="forbidden-labels">Введите запрещенные метки (через запятую):</label>
+                    <div id="oper_input">
+                        <input type="text" id="forbidden-labels" placeholder="Например: meat, cigarette, alcohol">
+                        <button id="submit-btn">Запретить</button>
+                        <button id="submit-btn-2">Сброс</button>
+                    </div>
+                </div>
+                <div id="image-container">
+                    <img id="uploaded-image" src="" style="display: none;">
+                    <video id="uploaded-video" src="" style="display: none;" controls></video>
+                </div>
+
+                <button id="publish" type="button">Publish</button>
+            </form>
+            <div id="post_block">
+            </div>
+        </div>
+
+        <div id="rigth_menu">
+            <ul id="page_menu">
+                <li>Chats</li>
+                <li>Groups</li>
+                <li>Friends</li>
+                <li>Games</li>
+                <li>Settings</li>
+            </ul>
+        </div>
+    </section>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    let uploadCount = 0;
+    let uploadLimit = 5;
+    let check = true;
+    console.log(check)
+
+    let prohibitedWords = {
+        "meat": true,
+        "food": true,
+        "carnivore": true,
+        "casino": true,
+        "gambling house": true,
+        "gambling": true,
+        "scenes of violence": true,
+        "bloodshed": true,
+        "slaughter": true,
+        "blood": true,
+        "battle": true,
+        "cold weapons": true,
+        "edged weapons": true,
+        "blade": true,
+        "knives": true,
+        "dagger": true,
+        "firearms": true,
+        "guns": true,
+        "pistol": true,
+        "rifle": true,
+        "кровь": true,
+        'нарко': true,
+        'убий': true,
+        'смерть': true,
+        'педофил': true,
+        'некрофил': true,
+    };
+    
+$('#inputPhoto').on('change', function() {
+        let file = this.files[0];
+        let formData = new FormData();
+        formData.append('file', file);
+        $.ajax({
+            url: '/upload',
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                let ocrText = response.ocr_text.toLowerCase(); // Convert text to lowercase
+
+                // Check if OCR text contains prohibited words
+                for (let word in prohibitedWords) {
+                    if (ocrText.includes(word)) {
+                        $('#result').text('На картинке есть запрещенные слова');
+                        check = false;
+                        return;
+                         // Exit the function if any prohibited word is found
+                    }
+                }
+                check = true
+                console.log(check)
+                // Display OCR text if no prohibited words are found
+                
+            },
+            error: function(xhr, status, error) {
+                console.error(error); // Log any errors for debugging
+                $('#result').text('Error: ' + error); // Display error message
+            }
+        });
+    });
+
+    function uploadFile() {
+        if (uploadCount >= uploadLimit) {
+            alert(`Queue overheated. Please wait 60 seconds.`);
+            return;
+        }
+        let fileInput = document.getElementById('inputPhoto');
+        let file = fileInput.files[0];
+        let formData = new FormData();
+        formData.append('file', file);
+        $('#result').text('');
+
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', '/');
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                let response = JSON.parse(xhr.responseText);
+
+                if (response.error) {
+                    labelsContainer.innerText = 'Error: ' + response.error;
+                } else {
+                    let hasForbiddenLabel = response.forbidden;
+                    if (hasForbiddenLabel) {
+                        alert('Недопустимый контент');
+                        let uploadedImage = document.getElementById('uploaded-image');
+                        uploadedImage.style.display = 'none';
+                    } else {
+                        let uploadedImage = document.getElementById('uploaded-image');
+                        uploadedImage.src = URL.createObjectURL(file);
+                        uploadedImage.style.display = 'block';
+                    }
+                }
+            } else {
+                let errorMessage = document.getElementById('error-message');
+                errorMessage.innerText = 'Error: ' + xhr.statusText;
+            }
+        };
+        xhr.send(formData);
+        uploadCount++;
+        setTimeout(function() {
+            uploadCount--;
+        }, 60000);
+    }
+
+    function uploadVideo() {
+        let videoInput = document.getElementById('inputVideo');
+        let video = videoInput.files[0];
+        let uploadedVideo = document.getElementById('uploaded-video');
+        uploadedVideo.src = URL.createObjectURL(video);
+        uploadedVideo.style.display = 'block';
+    }
+
+    function onFileLoaded(event) {
+        const file = event.target.files[0];
+        if (file) {
+            uploadFile();
+        }
+    }
+    function onVideoLoaded(event) {
+        const file = event.target.files[0];
+        if (file) {
+            uploadVideo()
+        }
+    }
+    document.getElementById("inputPhoto").addEventListener("change", onFileLoaded);
+    document.getElementById("inputVideo").addEventListener("change", onVideoLoaded);
+
+    document.getElementById("publish").onclick = function () {
+            let text = document.getElementById("inputText").value;
+            var regex = /(?:\S*?(?:[аеёиоуыэюя]чк[ао]|[аеёиоуыэюя]ч[еи]к|еньк[аи]|оньк[аеи]|очек|очк[аи]|ечк[аиу]|ушк[аи]|[и]шк[аи]|нарк[о0]))/gi;
+            // var regex = /(?<![а-яё])(?:(?:(?:у|[нз]а|(?:хитро|не)?вз?[ыьъ]|с[ьъ]|(?:и|ра)[зс]ъ?|(?:о[тб]|п[оа]д)[ьъ]?|(?:\S(?=[а-яё]))+?[оаеи-])-?)?(?:[её](?:б(?!о[рй]|рач)|п[уа](?:ц|тс))|и[пб][ае][тцд][ьъ]).*?|(?:(?:н[иеа]|ра[зс]|[зд]?[ао](?:т|дн[оа])?|с(?:м[еи])?|а[пб]ч)-?)?ху(?:[яйиеёю]|л+и(?!ган)).*?|бл(?:[эя]|еа?)(?:[дт][ьъ]?)?|\S*?(?:п(?:[иеё]зд|ид[аое]?р|ед(?:р(?!о[рй]|рач)|[аое]р|ик)|охую)|бля(?:[дбц]|тс)|[ое]ху[яйиеё]|хуйн).*?|(?:о[тб]?|про|на|вы)?м(?:анд(?:[ауеыи](?:л(?:и[сзщ])?[ауеиы])?|ой|[ао]в.*?|юк(?:ов|[ауи])?|е[нт]ь|ища)|уд(?:[яаиое].+?|е?н(?:[ьюия]|ей))|[ао]л[ао]ф[ьъ](?:[яиюе]|[еёо]й))|елд[ауые].*?|ля[тд]ь|(?:[нз]а|по)х)(?![а-яё])/gi;
+            var filteredText = text.replace(regex, "*****");
+
+                const form = document.getElementById('post_block')
+
+                if (inputText.value.length != 0 && check) {
+                    let image = document.getElementById("uploaded-image");
+                    let video = document.getElementById("uploaded-video");
+                    let imageSrc = image.getAttribute("src");
+                    let videoSrc = video.getAttribute("src");
+                    if (imageSrc != '' 	|| videoSrc != '') {
+                        const newPost = document.createElement("div");
+                        if (imageSrc != '' && videoSrc != '') {
+                            newPost.innerHTML = `<div class="new_post">
+                            <img src="${imageSrc}" class="post_img" style='border-radius: 3vh 3vh 0 0;'>
+                            <video src="${videoSrc}" class="post_video" controls></video>
+                            <p class="post_text">${filteredText}</p>
+                            </div>`
+                        }
+                        if (videoSrc == '') {
+                            newPost.innerHTML = `<div class="new_post">
+                            <img src="${imageSrc}" class="post_img" style='border-radius: 3vh 3vh 0 0;'>
+                            <p class="post_text">${filteredText}</p>
+                            </div>`
+                        }
+                        if (imageSrc == '') {
+                            newPost.innerHTML = `<div class="new_post">
+                            <video src="${videoSrc}" class="post_video" style='border-radius: 3vh 3vh 0 0;' controls></video>
+                            <p class="post_text">${filteredText}</p>
+                            </div>`
+                        }
+
+                        form.prepend(newPost)
+                    } else {
+                        const newPost = document.createElement("div");
+                        newPost.innerHTML = `<div class="new_post">
+                        <p class="post_text">${filteredText}</p>
+                        </div>`
+                        form.prepend(newPost)
+                    }
+                    
+                    let inputText = document.getElementById('inputText')
+                    inputText.value = ''
+                    image.style.display= 'none'
+                    video.style.display= 'none'
+                    image.src = ''
+                    video.src = ''
+                }
+    }
+
+                
+
+        document.getElementById('inputText').addEventListener('keydown', function(event) { //ОТМЕНА ФУНКЦИИ ENTER 
+            if (event.key === 'Enter' || event.keyCode === 13) {
+                event.preventDefault();
+            }
+        });
+
+
+        document.getElementById('submit-btn').addEventListener('click', function() {
+            var forbiddenLabelsInput = document.getElementById('forbidden-labels').value;
+            var forbiddenLabels = forbiddenLabelsInput.split(',').map(function(label) {
+                return label.trim();
+            });
+
+            fetch('/update_forbidden_labels', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ forbidden_labels: forbiddenLabels })
+            })
+            .then(function(response) {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(function(data) {
+                console.log('Forbidden labels updated successfully:', data);
+            })
+            .catch(function(error) {
+                console.error('Error updating forbidden labels:', error);
+            });
+        });
+
+        document.getElementById('submit-btn-2').addEventListener('click', function() {
+        fetch('/reset_forbidden_labels', {
+            method: 'GET'
+        })
+        .then(function(response) {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(function(data) {
+            console.log('Default forbidden labels restored:', data);
+            // Optionally, you can update the UI or display a message indicating success
+        })
+        .catch(function(error) {
+            console.error('Error resetting forbidden labels:', error);
+            // Optionally, you can display an error message to the user
+        });
+    });
+
+let operBlock = document.getElementById('oper_block')
+let hideBtn = document.getElementById('hide_oper')
+let isDisplayed = false;
+
+hideBtn.addEventListener('click', function() {
+    if (!isDisplayed) {
+        operBlock.style.display = 'flex';
+        isDisplayed = true;
+    } else {
+        operBlock.style.display = 'none';
+        isDisplayed = false;
+    }
+});
+
+
+</script>
+</body>
+</html>

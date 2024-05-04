@@ -1,0 +1,135 @@
+* {margin: 0; padding: 0;}
+a {text-decoration: none; color: white;}
+ul{list-style-type: none;}
+body {
+    background-color: #141414;
+    color: rgb(177, 177, 177);
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+header{
+    width: 100vw;
+    height: 10vh;
+    background-color: #272727;
+    border: 0.1vh solid #353535;
+    display: flex;
+    align-items: center;
+}
+#logo_box{
+    display: flex;
+    align-items: center;
+    height: 70%;
+    opacity: 90%;
+}
+#logo {
+    height: 100%;
+    margin: 0 1vw 0 5vw;
+    cursor: pointer;
+}
+
+#page {
+    width: 100vw; height: max-content;
+    display: flex;
+    justify-content: center;
+    padding-top: 3vh;
+}
+#feed {
+    width: 40vw;
+    margin: 0 1.5vw;
+}
+#uploadForm {
+    display: flex;
+    min-height: 30vh;
+    flex-direction: column;
+    background-color: #272727;
+    border-radius: 3vh;
+}
+
+#inputText {
+    height: 5%; width: 80%;
+    background-color: rgb(48, 48, 48);
+    color: rgb(61, 61, 61);
+    border: 0.1vh solid #353535;
+    border-radius: 1vh;
+    padding: 1% 2%;
+    margin: 1% auto 1% auto;
+    line-height: 1.5;
+    transition: 150ms;
+}
+#inputText:focus {
+    background-color: transparent;
+    border-color: #6200ea;
+    box-shadow: 0 0 10px rgba(98, 0, 234, 0.5);
+    outline: none;
+    color: rgb(192, 192, 192);
+    line-height: 1.5;
+}
+#page_menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 10vw; height: max-content;
+    background-color: #272727;
+    border-radius: 3vh;
+}
+#page_menu li {
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: smaller;
+    padding: 5% 0;
+    cursor: pointer;
+    transition: 150ms;
+    border-bottom: 0.1vh solid #353535;
+}
+#page_menu li:hover {
+    background-color: #1d1d1d;
+}
+
+#page_menu li:last-child {
+    border-bottom: 0vh;
+}
+#page_menu li:last-child:hover{
+    border-radius: 0 0 3vh 3vh;
+}
+#page_menu li:first-child:hover{
+    border-radius: 3vh 3vh 0 0;
+}
+
+#publish {
+    align-self: center;
+    background-color: #6200ea;
+    color: rgb(203, 203, 203);
+    text-transform: uppercase;
+    font-weight: 550;
+    border: none;
+    border-radius: 3vh;
+    margin-top: auto;
+    margin-bottom: 4%;
+    padding: 1.5% 7%;
+    cursor: pointer;
+    transition: 150ms;
+}
+#publish:hover{
+    box-shadow: 0 0 20px rgba(98, 0, 234, 0.5);
+}
+.icons{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    margin: 3% auto 0 auto;
+}
+#icon {
+    width: 50%;
+    opacity: 50%;
+    cursor: pointer;
+    transition: 50ms;
+}
+#icon:hover{
+    opacity: 30%;
+}
+#inputPhoto, #inputVideo{
+    display: none;
+    height: 0;
+}

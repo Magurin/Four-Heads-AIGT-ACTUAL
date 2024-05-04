@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "kuickhackhackatonimagelabels",
+  "private_key_id": "57374b99c466930e64741c149b1e8812281659cd",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCP9y/ce+wccDhm\n/J+AX1YvlI5rE34BhL3hG83nle7p/Of9Utz1qX0Q/aXurpOF4isiRKsEy4i8i/+K\nPAyYyD24HyQtU857wJ1aZYFoU9/IhTzSX3PBsmDPZMFYlROaRJvoCLb0uQ+SDJ0N\nsbvpN3hQyjaE0ASAbU6m9a+NfSCJF+skiAD6NDV7jPcestRD/FEbfFBifacx01tM\nHKiRihhKzKPvj6Tx/FvPDSO6GtgIzUsOm/0Qk4ibFB3nFfYUg5C4AfIQ1m9Jjiue\nBFQRgdJqb4FO6tbtLeo2Lhc2XtSUqr67qcEhLGyDHEGojitYjfIiyNnbJCD97/Op\n9CWuPHdxAgMBAAECggEAA2nnFqFRnfMDQ13mIlMgZgxtvBhAOqT9I6NXJJCnk6DN\nl3IpjyGvt4FsN9an5NrSDwP10i1JVr8zFgIKgmztGbqTTwfXs5ODp6sUgHbMraKL\nKKnews8KAKDw/Lq8NkI+OChMvkzNE7d82eBHBmasUa4Z0Nhl4u20mbzlpsM6zEVd\n0KCcnbkzxKDZD5cPMyIlFn11nBIBQolrETg2sBX3mxcw7ai4J9+QevdGF48UFPJI\nYvWTZ7u4oEn6o8PLnIS7IAV4lvbv3rl3rBL9AtALWFtyT/CZ8dIE1kG0yQj3HN4w\nn0BmiKextYwcyGTxzbg1MYDMMAetwYfBE2KAmFtHKQKBgQDEpsQwXOG0ZJWIs916\nSjT4BOhasmpjXP3H5FY3wiVVoeNd/qPLAnmEi1VDeYxY3luy8CvSOfjRz4l+jwdo\nAUlIcKn2ZCd1Y6msEjPUk/+kWGztjGJuIVzEuypbqThCyH+BGerJM51LnGNtOoKC\nasvl371/aQ4OSd/ASPij+RgQYwKBgQC7ae0fofb+pYbNkAtBO8f4cr108Qt3zHxa\noY0gsvN5A2KEEkGLbG1d7mzpVxjvLqqz62BK6TLe/TEutOV5REM8n4tHtfyYGbqX\nA6IxcCfg6F27EXSo+UpIsEy0Lk3AnC5KPmgF69/KC6b74hCRwZtZZ/JdRknV4Zx0\nwZZcqkpfGwKBgQCgm6c97I32O/QY6vWnC/ZI3hE7Cd5z+p3WZPm5nlnJn2dH/FGf\n2wyOIRHpAtuKNUjlUtwnXWuHSB3+fChLXEmS3Vkiv9euO1B3FYK5SoqOmh2UwYQe\neCcBEe/dXs5xVLk2Iomr+/iqqTZXHmM6yqhuvRZSeeWd693PeImBuk5aCwKBgCap\no5FzCFFgNH8TyD6c5pQKl6sYTxVXyg+oZETqpe/BEwHMAlmQ9L78ANvia/Jr3itf\n022gzi3SbeMEzpJF0tke0MzqbkGyjRu6VCt+x7tONIfzAe4Z/4kfVbOWGdQyZBpM\n5YjTMEeuP7SW3nQzTKkVGJrFdVX6RRyRE0PqnY0hAoGAEMIFIEDR0hyPyG4T89+I\nEf1b5tWreLckLnwe5JTu2YFyBuVKBZ7Lj2X/25yhQCt1QvYjWARm+CsNX1H9BWHv\nYLdKekVR80ofKnWl+f3AaaO6seEB5mi8lc6oR+6OVN3LUqKsxzS3eaTLUGSjC6PX\nNzq8I0EBI1WjGSdgDdDtGeA=\n-----END PRIVATE KEY-----\n",
+  "client_email": "imagedetectorlabels@kuickhackhackatonimagelabels.iam.gserviceaccount.com",
+  "client_id": "112093306777935688779",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/imagedetectorlabels%40kuickhackhackatonimagelabels.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
